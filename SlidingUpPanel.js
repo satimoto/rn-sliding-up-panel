@@ -48,6 +48,7 @@ class SlidingUpPanel extends React.PureComponent {
     onBackButtonPress: PropTypes.func,
     onDragStart: PropTypes.func,
     onDragEnd: PropTypes.func,
+    onHide: PropTypes.func,
     onMomentumDragStart: PropTypes.func,
     onMomentumDragEnd: PropTypes.func,
     onBottomReached: PropTypes.func,
@@ -72,6 +73,7 @@ class SlidingUpPanel extends React.PureComponent {
     onBackButtonPress: null,
     onDragStart: () => {},
     onDragEnd: () => {},
+    onHide: null,
     onMomentumDragStart: () => {},
     onMomentumDragEnd: () => {},
     allowMomentum: true,
@@ -478,6 +480,10 @@ class SlidingUpPanel extends React.PureComponent {
   }
 
   hide() {
+    if (this.props.onHide) {
+      this.props.onHide()
+    }
+
     const {bottom} = this.props.draggableRange
     this._triggerAnimation({toValue: bottom})
   }
