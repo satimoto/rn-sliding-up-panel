@@ -18,6 +18,7 @@ export interface SlidingUpPanelProps {
   onBackButtonPress?: () => boolean
   onDragStart?: (value: number, gestureState: PanResponderGestureState) => void
   onDragEnd?: (value: number, gestureState: PanResponderGestureState) => void
+  onHide?: () => void
   onMomentumDragStart?: (value: number) => void
   onMomentumDragEnd?: (value: number) => void
   onBottomReached?: () => any
